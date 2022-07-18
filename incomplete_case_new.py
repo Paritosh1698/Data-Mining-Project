@@ -37,6 +37,12 @@ for f in incomplete_datasets:
 
     #Checking for any missing values in the imputed dataset
     print('Missing values:',imputed_df.isnull().any().sum())
+    
+    #Calculating the NRMS value
+    numerator = np.linalg.norm(np.linalg.norm(imputed_df) - np.linalg.norm(actual))
+    denomenator = np.linalg.norm(actual)
+    nrms = numerator/denomenator
+    print('NRMS value', nrms)
 
     count += 1
 print(count)
